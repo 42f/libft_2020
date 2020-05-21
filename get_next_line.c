@@ -6,7 +6,7 @@
 /*   By: bvalette <bvalette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/26 15:19:03 by bvalette          #+#    #+#             */
-/*   Updated: 2020/02/26 12:29:42 by bvalette         ###   ########.fr       */
+/*   Updated: 2020/05/21 14:06:26 by bvalette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # define BUFFER_SIZE 1024
 #endif
 
-static int		ft_read(int fd, t_gnl_l *fd_cursor, t_gnl_l *read_buffer_head)
+static int	ft_read(int fd, t_gnl_l *ft_curs, t_gnl_l *read_buffer_head)
 {
 	int				ret;
 	t_gnl_l			*buff;
@@ -39,13 +39,13 @@ static int		ft_read(int fd, t_gnl_l *fd_cursor, t_gnl_l *read_buffer_head)
 		buff->next = ft_create_node(-1, NULL);
 		buff = buff->next;
 	}
-	ft_strlcpy(fd_cursor->ct, ft_gnl_strchr(buff->ct, '\n'), BUFFER_SIZE);
+	ft_strlcpy(ft_curs->ct, ft_gnl_strchr(buff->ct, '\n'), BUFFER_SIZE);
 	if (ret <= BUFFER_SIZE && ret > 0)
 		ret = 1;
 	return (ret);
 }
 
-static int		ft_write_line(char **line, t_gnl_l *read_buffer_head)
+static int	ft_write_line(char **line, t_gnl_l *read_buffer_head)
 {
 	size_t			dst_size;
 	size_t			buff_len;
@@ -73,7 +73,7 @@ static int		ft_write_line(char **line, t_gnl_l *read_buffer_head)
 	return (1);
 }
 
-static int		ft_gnl_from_fd(int fd, char **line, t_gnl_l *fd_cursor)
+static int	ft_gnl_from_fd(int fd, char **line, t_gnl_l *ft_curs)
 {
 	int				ret;
 	t_gnl_l			*read_buffer_head;
@@ -85,10 +85,10 @@ static int		ft_gnl_from_fd(int fd, char **line, t_gnl_l *fd_cursor)
 		*line = (char *)malloc(sizeof(char));
 		return (-1);
 	}
-	read_buffer_head = ft_create_node(-1, fd_cursor->ct);
+	read_buffer_head = ft_create_node(-1, ft_curs->ct);
 	if (read_buffer_head == NULL)
 		return (-1);
-	ret = ft_read(fd, fd_cursor, read_buffer_head);
+	ret = ft_read(fd, ft_curs, read_buffer_head);
 	if (ft_write_line(line, read_buffer_head) == -1)
 		ret = -1;
 	while (read_buffer_head != NULL)
@@ -102,28 +102,27 @@ static int		ft_gnl_from_fd(int fd, char **line, t_gnl_l *fd_cursor)
 	return (ret);
 }
 
-int		get_next_line(int fd, char **line)
+int			get_next_line(int fd, char **line)
 {
 	int				ret;
 	static	t_gnl_l	*fd_head;
-	t_gnl_l			*fd_cursor;
+	t_gnl_l			*ft_curs;
 
 	if (line == NULL)
-			return (-1);
+		return (-1);
 	ret = -1;
 	if (fd_head == NULL)
 		if ((fd_head = ft_create_node(fd, NULL)) == NULL)
 			return (-1);
-	fd_cursor = ft_lst_manager(fd_head, fd);
-	if (fd_cursor != NULL && ft_gnl_strchr(fd_cursor->ct, '\n') != NULL)
+	ft_curs = ft_lst_manager(fd_head, fd);
+	if (ft_curs != NULL && ft_gnl_strchr(ft_curs->ct, '\n') != NULL)
 	{
-		if ((ret = ft_write_line(line, fd_cursor)) == -1)
+		if ((ret = ft_write_line(line, ft_curs)) == -1)
 			return (-1);
-		ft_strlcpy(fd_cursor->ct, 
-ft_gnl_strchr(fd_cursor->ct, '\n'), BUFFER_SIZE);
+		ft_strlcpy(ft_curs->ct, ft_gnl_strchr(ft_curs->ct, '\n'), BUFFER_SIZE);
 	}
-	else if (fd_cursor != NULL)
-		ret = ft_gnl_from_fd(fd, line, fd_cursor);
+	else if (ft_curs != NULL)
+		ret = ft_gnl_from_fd(fd, line, ft_curs);
 	if (ret < 1)
 		fd_head = ft_free_fd_cursor(fd_head, fd);
 	return (ret);

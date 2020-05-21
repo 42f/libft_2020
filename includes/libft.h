@@ -6,7 +6,7 @@
 /*   By: bvalette <bvalette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/06 13:13:26 by bvalette          #+#    #+#             */
-/*   Updated: 2020/04/05 15:32:25 by bvalette         ###   ########.fr       */
+/*   Updated: 2020/05/21 14:02:51 by bvalette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,6 @@ void				ft_putnbr_base(long long int nbr, char *base);
 */
 
 unsigned int		ft_reversebits(unsigned int num);
-unsigned int		ft_swapendian(unsigned int num);
 
 /*
 **	LISTS FUNCTIONS

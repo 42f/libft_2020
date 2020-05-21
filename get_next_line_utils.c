@@ -6,7 +6,7 @@
 /*   By: bvalette <bvalette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 17:34:40 by bvalette          #+#    #+#             */
-/*   Updated: 2020/02/26 12:26:55 by bvalette         ###   ########.fr       */
+/*   Updated: 2020/05/21 14:05:14 by bvalette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,5 +123,3 @@ char	*ft_gnl_strchr(const char *s, int c)
 	}
 	return (NULL);
 }
-
-

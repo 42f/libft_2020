@@ -6,7 +6,7 @@
 /*   By: bvalette <bvalette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/17 21:43:55 by bvalette          #+#    #+#             */
-/*   Updated: 2020/01/22 09:11:41 by bvalette         ###   ########.fr       */
+/*   Updated: 2020/05/21 14:00:13 by bvalette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,6 @@ char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
 	if (nbr == NULL || base_from == NULL || base_to == NULL)
 		return (NULL);
 	nbr_dec = ft_atoi_base(nbr, base_from);
-	ret_str = ft_itoa_base(nbr_dec, base_to);	
+	ret_str = ft_itoa_base(nbr_dec, base_to);
 	return (ret_str);
 }

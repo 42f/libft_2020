@@ -52,7 +52,6 @@ SRCS += ft_putnbr_base.c
 SRCS += get_next_line.c
 SRCS += get_next_line_utils.c
 SRCS += ft_reversebits.c
-SRCS += ft_swapendian.c
 
 OBJS	 =	$(SRCS:.c=.o)
 

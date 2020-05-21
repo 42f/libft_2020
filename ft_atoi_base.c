@@ -6,7 +6,7 @@
 /*   By: bvalette <bvalette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/17 15:51:43 by bvalette          #+#    #+#             */
-/*   Updated: 2020/01/22 09:13:13 by bvalette         ###   ########.fr       */
+/*   Updated: 2020/05/21 13:59:35 by bvalette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@ int				ft_atoi_base(const char *str, char *base)
 		{
 			while (str[1] != '\0' && ft_isalnum(str[1]) != 1)
 				str++;
-			break;
+			break ;
 		}
 		str++;
 	}
@@ -112,5 +112,5 @@ int				ft_atoi_base(const char *str, char *base)
 	if (ret == -1)
 		return (0);
 	ret = ret * sign;
-	return (ret);	
+	return (ret);
 }
