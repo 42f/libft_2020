@@ -6,7 +6,7 @@
 /*   By: bvalette <bvalette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/06 13:13:26 by bvalette          #+#    #+#             */
-/*   Updated: 2020/05/21 14:02:51 by bvalette         ###   ########.fr       */
+/*   Updated: 2020/05/22 16:57:49 by bvalette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int					ft_strncmp(const char *s1, const char *s2, size_t n);
 size_t				ft_strlcpy(char *dst, const char *src, size_t dstsize);
 size_t				ft_strlcat(char *dst, const char *src, size_t dstsize);
 char				*ft_strnstr(const char *haystack, const char *needle,
-	size_t len);
+																	size_t len);
 long long int		ft_atoi(const char *str);
 int					ft_atoi_base(const char *str, char *base);
 char				*ft_strdup(const char *s1);
@@ -108,31 +108,31 @@ void				ft_lstdelone(t_list *lst, void (*del)(void*));
 void				ft_lstclear(t_list **lst, void (*del)(void*));
 void				ft_lstiter(t_list *lst, void (*f)(void *));
 t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
-	void (*del)(void *));
+														void (*del)(void *));
 
 /*
 **  OTHER 42 PROJECTS FUNCTIONS
 */
 
 /*
-**  GET NEXT LINE IS 
+**  GET NEXT LINE IS
 **	FUNCTION THAT READS ONE LINE AT EACH CALL FROM A GIVEN FD
-**	CAN BE CALLED WITH DIFFERENT FD EVERYTIME AND KEEP READING THE FILES 
+**	CAN BE CALLED WITH DIFFERENT FD EVERYTIME AND KEEP READING THE FILES
 **	LINE BY LINE WITHOUT MIXING DIFFERENT FILES
 */
 
-typedef struct	s_gnl_list
+typedef struct		s_gnl_l
 {
-	int					fd;
-	char				*ct;
-	struct s_gnl_list	*next;
-}				t_gnl_l;
+	int				fd;
+	char			*ct;
+	struct s_gnl_l	*next;
+}					t_gnl_l;
 
-t_gnl_l			*ft_create_node(int new_fd, char *ct);
-t_gnl_l			*ft_lst_manager(t_gnl_l *cursor, int fd_to_find);
-t_gnl_l			*ft_free_fd_cursor(t_gnl_l *fd_head, int fd);
-int				get_next_line(int fd, char **line);
-char			*ft_gnl_strchr(const char *s, int c);
-size_t			ft_gnl_strlcat(char *dst, const char *src, size_t dstsize);
+t_gnl_l				*ft_create_node(int new_fd, char *ct);
+t_gnl_l				*ft_lst_manager(t_gnl_l *cursor, int fd_to_find);
+t_gnl_l				*ft_free_fd_cursor(t_gnl_l *fd_head, int fd);
+int					get_next_line(int fd, char **line);
+char				*ft_gnl_strchr(const char *s, int c);
+size_t				ft_gnl_strlcat(char *dst, const char *src, size_t dstsize);
 
 #endif
