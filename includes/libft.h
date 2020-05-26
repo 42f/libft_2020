@@ -6,7 +6,7 @@
 /*   By: bvalette <bvalette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/06 13:13:26 by bvalette          #+#    #+#             */
-/*   Updated: 2020/05/22 17:30:49 by bvalette         ###   ########.fr       */
+/*   Updated: 2020/05/26 23:02:16 by bvalette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,8 @@ char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void				ft_putnbr(int n);
 void				ft_putstr(char *s);
 int					ft_putchar(wchar_t c);
+
+void				ft_putmem(void *ptr, size_t size);
 
 void				ft_putchar_fd(char c, int fd);
 void				ft_putstr_fd(char *s, int fd);

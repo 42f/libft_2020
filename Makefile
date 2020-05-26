@@ -17,6 +17,7 @@ SRCS += ft_memcmp.c
 SRCS += ft_memcpy.c
 SRCS += ft_memmove.c
 SRCS += ft_memset.c
+SRCS += ft_putmem.c
 SRCS += ft_putendl_fd.c
 SRCS += ft_putchar.c
 SRCS += ft_putnbr.c
@@ -88,6 +89,10 @@ fclean:	clean
 	@echo "\n		🚧 forced cleaning...\n"
 	$(RM) $(NAME)
 
+install: $(NAME)
+	cp libft.a /usr/local/lib/
+	cp includes/libft.h /usr/local/include/
+
 re:	fclean all
 
-.PHONY:	clean all fclean re bonus
+.PHONY:	clean all fclean re bonus install
