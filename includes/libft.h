@@ -6,7 +6,7 @@
 /*   By: bvalette <bvalette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/06 13:13:26 by bvalette          #+#    #+#             */
-/*   Updated: 2020/05/26 23:02:16 by bvalette         ###   ########.fr       */
+/*   Updated: 2020/05/29 21:32:11 by bvalette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ size_t				ft_strlcpy(char *dst, const char *src, size_t dstsize);
 size_t				ft_strlcat(char *dst, const char *src, size_t dstsize);
 char				*ft_strnstr(const char *haystack, const char *needle,
 																	size_t len);
-long long int		ft_atoi(const char *str);
+int					ft_atoi(const char *str);
 int					ft_atoi_base(const char *str, char *base);
 char				*ft_strdup(const char *s1);
 char				*ft_convert_base(char *nbr, char *base_from, char *base_to);
