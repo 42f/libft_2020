@@ -6,7 +6,7 @@
 /*   By: bvalette <bvalette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/13 09:32:31 by Brian             #+#    #+#             */
-/*   Updated: 2020/01/08 15:18:12 by bvalette         ###   ########.fr       */
+/*   Updated: 2020/05/29 22:48:57 by bvalette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 **	changement du return en cas de int n = 0 plus propre
 */
 
-static char	*ft_fill(char *r, unsigned long n_val, int negsign, int i)
+static char	*ft_fill(char *r, unsigned int n_val, short negsign, int i)
 {
 	while (n_val > 0 && i >= 0)
 	{
@@ -31,12 +31,12 @@ static char	*ft_fill(char *r, unsigned long n_val, int negsign, int i)
 	return (r);
 }
 
-char		*ft_itoa(long long int nb)
+char		*ft_itoa(int nb)
 {
 	char			*ret;
 	int				len;
-	int				negsign;
-	unsigned long	nb_val;
+	short			negsign;
+	unsigned int	nb_val;
 
 	len = 0;
 	negsign = 1;
