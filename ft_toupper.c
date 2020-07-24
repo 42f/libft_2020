@@ -6,13 +6,11 @@
 /*   By: bvalette <bvalette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 07:50:14 by bvalette          #+#    #+#             */
-/*   Updated: 2019/11/20 10:55:20 by bvalette         ###   ########.fr       */
+/*   Updated: 2020/07/24 19:04:32 by bvalette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_toupper(int c)
 {
-	if (c >= 'a' && c <= 'z')
-		return (c - 32);
-	return (c);
+	return (c - 32 * (c >= 'a' && c <= 'z'));
 }

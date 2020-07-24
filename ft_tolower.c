@@ -6,13 +6,12 @@
 /*   By: bvalette <bvalette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 07:50:14 by bvalette          #+#    #+#             */
-/*   Updated: 2019/11/20 10:55:19 by bvalette         ###   ########.fr       */
+/*   Updated: 2020/07/24 19:03:24 by bvalette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include <unistd.h>
 
 int	ft_tolower(int c)
 {
-	if (c >= 'A' && c <= 'Z')
-		return (c + 32);
-	return (c);
+	return (c + 32 * (c >= 'A' && c <= 'Z'));
 }
