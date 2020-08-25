@@ -3,12 +3,12 @@ Student's own C library for 42 School. It's the result of work on different proj
 
 `make` to compile the library
 
-###bits
+### bits
 |function		| 	comment |
 |:--------------|:----------|
 ft_reversebits	|Change endianness
 
-###char
+### char
 
 |function		| 	comment |
 |:--------------|:----------|
@@ -20,7 +20,7 @@ ft_isdigit		|Returns 1 if the char passed as parameter is a number
 ft_tolower		|Minimize the char passed as parameter
 ft_toupper		|Capitalize the char passed as parameter
 
-###conversion
+### conversion
 |function		| 	comment |
 |:--------------|:----------|
 ft_atoi			|Convert the string passed as parameter to an integer
@@ -29,12 +29,12 @@ ft_convert_base	|Convert a string containing a number in a base passed as two fi
 ft_itoa			|Convert an integer to a string
 ft_itoa_base	|Convert an inteher to a string in a based passed as parameter
 
-###gnl
+### gnl
 |function		| 	comment |
 |:--------------|:----------|
 get_next_line	|Fill the buffer passed as parameter with the next line in a file descriptor passe as parameter
 
-###list
+### list
 |function		| 	comment |
 |:--------------|:----------|
 ft_lstadd_back	|
@@ -47,7 +47,7 @@ ft_lstmap		|
 ft_lstnew		|
 ft_lstsize		|
 
-###memory
+### memory
 |function		| 	comment |
 |:--------------|:----------|
 ft_bzero		|
@@ -59,7 +59,7 @@ ft_memcpy		|
 ft_memmove		|
 ft_memset		|
 
-###put
+### put
 |function		| 	comment |
 |:--------------|:----------|
 ft_putchar		|
@@ -72,7 +72,7 @@ ft_putnbr_fd	|
 ft_putstr		|
 ft_putstr_fd	|
 
-###str
+### str
 |function		| 	comment |
 |:--------------|:----------|
 ft_split		|
