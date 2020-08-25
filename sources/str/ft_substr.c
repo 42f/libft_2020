@@ -6,35 +6,29 @@
 /*   By: bvalette <bvalette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/09 18:26:31 by Brian             #+#    #+#             */
-/*   Updated: 2019/11/19 07:46:30 by bvalette         ###   ########.fr       */
+/*   Updated: 2020/08/25 17:43:15 by bvalette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
-** RETRY = retrait du cast de r sur le return en cas de strlen < start
-**	retrait cast de s dans str_len inutil
-**	retrait dernier condition s_len < start car jamais utilisée
-**	calloc pour remplacer malloc + bzero
-*/
-
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+static char	*return_freeable_pointer()
 {
-	char	*r;
+	return((char *)ft_calloc(sizeof(char), 1));
+}
+
+char		*ft_substr(char const *str, unsigned int start, size_t len)
+{
+	char	*ret;
 	size_t	s_len;
 
-	if (!s)
+	if (!str)
 		return (NULL);
-	s_len = ft_strlen(s);
+	s_len = ft_strlen(str);
 	if (s_len < (size_t)start)
-	{
-		if (!(r = (char *)ft_calloc(sizeof(char), 1)))
-			return (NULL);
-		return (r);
-	}
-	if (!(r = (char *)malloc(sizeof(char) * (len + 1))))
-		return (NULL);
-	ft_strlcpy(r, (char *)(s + start), len + 1);
-	return (r);
+		return (return_freeable_pointer());
+	ret = (char *)malloc(sizeof(char) * (len + 1));
+	if (ret != NULL)
+		ft_strlcpy(ret, (char *)(str + (start * sizeof(char))), len + 1);
+	return (ret);
 }
