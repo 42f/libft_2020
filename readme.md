@@ -29,7 +29,7 @@ ft_convert_base	|Convert a string containing a number in a base passed as two fi
 ft_itoa			|Convert an integer to a string.
 ft_itoa_base	|Convert an inteher to a string in a based passed as parameter.
 
-### gnl.
+### gnl
 |function		| 	comment |
 |:--------------|:----------|
 get_next_line	|Fill the buffer (with malloc) passed as parameter with the next line in a file descriptor passe as parameter. The buffer must be freed. Returns 1 if a line is read, 0 if the EOF is reached, -1 if an error occured.
