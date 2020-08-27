@@ -59,6 +59,11 @@ ft_memcpy		|Copy the n first bytes of src to dest and return a pointer to dest.
 ft_memmove		|Copy n bytes of src to dst and allow overlapping of src and dst. Returns a pointer to dst.
 ft_memset		|Set a value c to n bytes of the memory region pointed. Returns a pointer to the memory region.
 
+### math
+|function		| 	comment |
+|:--------------|:----------|
+ft_pow			|Return the result of number to the power of numbers passed as parameter. Will return 0 for negative power, 1 for 0 to the power of 0. Int overflow of the result is undefined.
+
 ### put
 |function		| 	comment |
 |:--------------|:----------|

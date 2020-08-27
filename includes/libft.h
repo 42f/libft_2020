@@ -6,7 +6,7 @@
 /*   By: bvalette <bvalette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/06 13:13:26 by bvalette          #+#    #+#             */
-/*   Updated: 2020/05/29 22:50:33 by bvalette         ###   ########.fr       */
+/*   Updated: 2020/08/27 07:31:23 by bvalette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,12 @@ void				ft_putstr_fd(char *s, int fd);
 void				ft_putendl_fd(char *s, int fd);
 void				ft_putnbr_fd(int n, int fd);
 void				ft_putnbr_base(long long int nbr, char *base);
+
+/*
+**  BITS FUNCTIONS
+*/
+
+int					ft_pow(int number, int power);
 
 /*
 **  BITS FUNCTIONS

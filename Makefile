@@ -54,6 +54,7 @@ SRCS += $(SRCS_DIR)/str/ft_strmapi.c
 SRCS += $(SRCS_DIR)/str/ft_strtrim.c
 SRCS += $(SRCS_DIR)/str/ft_strlcat.c
 SRCS += $(SRCS_DIR)/str/ft_strdup.c
+SRCS += $(SRCS_DIR)/math/ft_pow.c
 
 OBJS	 =	$(SRCS:.c=.o)
 
