@@ -10,6 +10,8 @@ Given the fact the school doesn't allow any external function (from libc or such
 `make install` will copy the compiled library and header to the right folders (mac os for sure, linux needs to be tested).
 `make fclean` to remove everything.
 
+## Functions list
+
 ### bits
 |function		| 	comment |
 |:--------------|:----------|
