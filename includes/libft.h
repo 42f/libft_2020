@@ -6,7 +6,7 @@
 /*   By: bvalette <bvalette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/06 13:13:26 by bvalette          #+#    #+#             */
-/*   Updated: 2020/08/27 07:31:23 by bvalette         ###   ########.fr       */
+/*   Updated: 2020/08/28 14:33:14 by bvalette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,31 @@
 # include <unistd.h>
 # include <wchar.h>
 
+# define SUCCESS	1
+# define TRUE		1
+# define FALSE		0
+# define ERROR		-1
+
+/*
+**  LINKED LIST STRUCTURE
+*/
+
 typedef struct		s_list
 {
 	void			*content;
 	struct s_list	*next;
 }					t_list;
+
+/*
+**  BINARY TREE STRUCTURE
+*/
+
+typedef	struct		s_btree
+{
+	struct s_btree	*left;
+	struct s_btree	*right;
+	void			*item;
+}					t_btree;
 
 /*
 **  MEMORIES FUNCTIONS
@@ -102,6 +122,36 @@ int					ft_pow(int number, int power);
 */
 
 unsigned int		ft_reversebits(unsigned int num);
+
+/*
+**  BINARY TREES FUNCTIONS
+*/
+
+t_btree				*btree_create_node(void *item);
+void				btree_free_suffix(t_btree *root);
+size_t				btree_level_count(t_btree *root);
+size_t				btree_nodes_count(t_btree *root);
+
+void				btree_apply_item_prefix(t_btree *root,
+														void (*applyf)(void *));
+void				btree_apply_item_infix(t_btree *root,
+														void (*applyf)(void *));
+void				btree_apply_item_suffix(t_btree *root,
+														void (*applyf)(void *));
+
+void				btree_apply_node_prefix(t_btree *root,
+													void (*applyf)(t_btree *));
+void				btree_apply_node_infix(t_btree *root,
+													void (*applyf)(t_btree *));
+void				btree_apply_node_suffix(t_btree *root,
+													void (*applyf)(t_btree *));
+
+void				btree_insert_data(t_btree **root,
+									void *item, int (*cmpf)(void *, void *));
+void				*btree_search_item(t_btree *root,
+								void *data_ref, int (*cmpf)(void *, void *));
+void				btree_apply_by_level(t_btree *root,
+			void (*applyf)(void *item, int current_level, int is_first_elem));
 
 /*
 **	LISTS FUNCTIONS

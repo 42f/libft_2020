@@ -1,35 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   btree_level_count.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bvalette <bvalette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/05 18:27:47 by bvalette          #+#    #+#             */
-/*   Updated: 2020/08/28 14:33:40 by bvalette         ###   ########.fr       */
+/*   Created: 2020/08/26 07:51:04 by bvalette          #+#    #+#             */
+/*   Updated: 2020/08/28 11:41:28 by bvalette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static const char	*get_skipped_input(const char *str)
+size_t	btree_level_count(t_btree *root)
 {
-	while (*str == ' ' || (*str >= 9 && *str <= 13))
-		str++;
-	return (str);
-}
+	static size_t	level_left;
+	static size_t	level_right;
 
-int					ft_atoi(const char *str)
-{
-	int			output;
-	size_t		i;
-
-	output = 0;
-	i = 0;
-	str = get_skipped_input(str);
-	if (str[0] == '-' || str[0] == '+')
-		i++;
-	while (str[i] >= '0' && str[i] <= '9')
-		output = output * 10 + (str[i++] - 48);
-	return (str[0] == '-' ? -output : output);
+	if (root == NULL)
+		return (0);
+	if (root->left != NULL)
+		level_left = btree_level_count(root->left);
+	if (root->right != NULL)
+		level_right = btree_level_count(root->right);
+	return ((level_left > level_right) ? level_left + 1 : level_right + 1);
 }

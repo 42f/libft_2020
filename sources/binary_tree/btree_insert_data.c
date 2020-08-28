@@ -1,35 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   btree_insert_data.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bvalette <bvalette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/05 18:27:47 by bvalette          #+#    #+#             */
-/*   Updated: 2020/08/28 14:33:40 by bvalette         ###   ########.fr       */
+/*   Created: 2020/08/26 07:51:20 by bvalette          #+#    #+#             */
+/*   Updated: 2020/08/28 12:36:17 by bvalette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static const char	*get_skipped_input(const char *str)
+void	btree_insert_data(t_btree **root, void *item,
+													int (*cmpf)(void *, void *))
 {
-	while (*str == ' ' || (*str >= 9 && *str <= 13))
-		str++;
-	return (str);
-}
+	t_btree *tree;
 
-int					ft_atoi(const char *str)
-{
-	int			output;
-	size_t		i;
-
-	output = 0;
-	i = 0;
-	str = get_skipped_input(str);
-	if (str[0] == '-' || str[0] == '+')
-		i++;
-	while (str[i] >= '0' && str[i] <= '9')
-		output = output * 10 + (str[i++] - 48);
-	return (str[0] == '-' ? -output : output);
+	if (cmpf == NULL)
+		return ;
+	tree = *root;
+	if (*root != NULL)
+	{
+		if (cmpf(item, tree->item) < 0)
+			btree_insert_data(&tree->left, item, cmpf);
+		else
+			btree_insert_data(&tree->right, item, cmpf);
+	}
+	else
+		*root = btree_create_node(item);
+	return ;
 }

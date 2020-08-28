@@ -6,15 +6,15 @@
 /*   By: bvalette <bvalette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/09 18:26:31 by Brian             #+#    #+#             */
-/*   Updated: 2020/08/25 17:43:15 by bvalette         ###   ########.fr       */
+/*   Updated: 2020/08/28 14:34:35 by bvalette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char	*return_freeable_pointer()
+static char	*return_freeable_pointer(void)
 {
-	return((char *)ft_calloc(sizeof(char), 1));
+	return ((char *)ft_calloc(sizeof(char), 1));
 }
 
 char		*ft_substr(char const *str, unsigned int start, size_t len)

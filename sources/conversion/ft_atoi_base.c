@@ -6,7 +6,7 @@
 /*   By: bvalette <bvalette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/17 15:51:43 by bvalette          #+#    #+#             */
-/*   Updated: 2020/05/21 13:59:35 by bvalette         ###   ########.fr       */
+/*   Updated: 2020/08/28 14:20:13 by bvalette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,23 +31,6 @@ static int		ft_is_valid(char *base)
 		base++;
 	}
 	return (1);
-}
-
-static int		ft_pow(int nb, int pow)
-{
-	int		i;
-	int		ret;
-
-	ret = 1;
-	i = 0;
-	if (pow == 0)
-		return (1);
-	while (i < pow)
-	{
-		ret = ret * nb;
-		i++;
-	}
-	return (ret);
 }
 
 static int		ft_locate_inbase(char c, char *base)
