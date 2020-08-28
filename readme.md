@@ -1,7 +1,14 @@
 # Libft
 Student's own C library for 42 School. It's the result of work on different project and an ever growing library to be used in future projects and showcase the current one's current ability.
 
-`make` to compile the library
+Given the fact the school doesn't allow any external function (from libc or such) in the student's project, some function in this lib are simply my verison of libc's implementations. Some of them are improved (atoi managed signs better for example). 
+
+## Usage
+
+`make` to compile the library.
+`make clean` will remove the object files.
+`make install` will copy the compiled library and header to the right folders (mac os for sure, linux needs to be tested).
+`make fclean` to remove everything.
 
 ### bits
 |function		| 	comment |
@@ -118,6 +125,6 @@ ft_substr		|Allocates with malloc and copy a section of the string passed as par
 |:--------|:------|:-----|
 btree_apply_by_level_spiral|Would work as the current `btree_apply_by_level` only it would go from right to left on odd levels and left to right on even levels|❌
 btree_apply_by_level_spiral_reverse|Would work as the current `btree_apply_by_level` only it would go from left to right on odd levels and right to left on even levels|❌
-btree_apply_to_specific_level|Apply the function passed as parameter to one level passed as parameter.
+btree_apply_to_specific_level|Apply the function passed as parameter to one level passed as parameter.|❌
 btree_apply_to_n_nodes_specific_level|Apply the function passed as parameter on, at most, n nodes on the level passed as parameter. If the level has less nodes than n, it applies to all nodes on the level.|❌
 
