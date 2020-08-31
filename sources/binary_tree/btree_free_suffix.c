@@ -18,7 +18,8 @@ void	btree_free_suffix(t_btree *root)
 	{
 		btree_free_suffix(root->left);
 		btree_free_suffix(root->right);
-		free(root->item);
+		if (root->item != NULL)
+			free(root->item);
 		free(root);
 	}
 }
