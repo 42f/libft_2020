@@ -1,4 +1,7 @@
+[École 42 - project] Reimplementation of many C standard functions, along with many more basic functions needed for future projects.
+
 # Libft
+
 Student's own C library for 42 School. It's the result of work on different project and an ever growing library to be used in future projects and showcase the current one's current ability.
 
 Given the fact the school doesn't allow no or very few external function (from libc or such) in most of the student's project, some function in this lib are simply my verison of libc's implementations. Some of them are improved (atoi managed signs better for example). 
